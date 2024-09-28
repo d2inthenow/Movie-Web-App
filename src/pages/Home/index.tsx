@@ -1,8 +1,9 @@
-
-
-function Home() {
+import HomeSlider from "../../components/Home/HomeSlider"
+const Home = () => {
   return (
-    <div>index</div>
+    <div className="w-[90%] mx-auto">
+      <HomeSlider />
+    </div>
   )
 }
 
