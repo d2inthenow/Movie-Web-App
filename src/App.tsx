@@ -11,19 +11,17 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 const App = () => {
 
   return (
-    <div className='bg-black-400'>
-      <Navbar />
+    <div className=''>
       <BrowserRouter>
+      <Navbar />
         <Routes>
-          <Route path='*' element={<Navigate to='/' />} />
           <Route path='/' element={<Home />} />
           <Route path='/movies' element={<Movie />} />
-          <Route path='/moviedetails/:id' element={<Details />} />
-
+          <Route path='/details/:id' element={<Details />} />
+          <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </BrowserRouter>
     </div>
-
   )
 }
 

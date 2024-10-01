@@ -4,18 +4,20 @@ import MovieCard from "./MovieCard"
 
 interface MovieListProps {
     movies: MovieCardType[]
+    title?: string
 }
-const MovieList = ({ movies }: MovieListProps) => {
+const MovieList = ({ movies, title }: MovieListProps) => {
     return (
-        <div className="my-14">
-            <h1 className="text-3xl font-bold text-yellow-500">Top rate movie</h1>
+        <div className="mt-14">
+            {
+
+                <h1 className="text-3xl font-bold text-yellow-500">{title}</h1>
+
+            }
             <div className="row row-cols-6">
                 {
                     movies.length > 0 && movies.map((data) => (
-                        <MovieCard key={data.id} movieData={data}/>
-                        
-
-
+                        <MovieCard key={data.id} movieData={data} />
                     ))
                 }
             </div>

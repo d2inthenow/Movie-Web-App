@@ -18,7 +18,7 @@ const MovieCard = ({ movieData }:MovieCardProps) => {
 
             <div className={`my-3 border-2 border-zinc-800 rounded-lg overflow-hidden ${movieData.id===hover?"scale-[102%]":""} duration-200  `}>
                 <div className="relative overflow-hidden"></div>
-                <img src={imagePath + movieData.poster_path} alt="" />
+                <img src={imagePath + movieData.poster_path} className="aspect-[3/5]" alt="" />
                 <div className="absolute w-full h-28 -bottom-6 _carouselGradient">
 
                 </div>
