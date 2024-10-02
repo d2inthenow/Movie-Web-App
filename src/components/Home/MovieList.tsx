@@ -1,4 +1,3 @@
-
 import { MovieCardType } from "../../utils/constant"
 import MovieCard from "./MovieCard"
 

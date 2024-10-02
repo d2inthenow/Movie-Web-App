@@ -28,3 +28,17 @@ export interface CategoryType {
   {name:"Top Rated",path:"top_rated"},
   {name:"Upcoming",path:"upcoming"}
  ]
+
+ export interface MovieDetailsType {
+  id: number;
+  poster_path: string;
+  backdrop_path: string;
+  original_title: string;
+  release_date: string;
+  tagline: string;
+  overview: string;
+  genres: { name: string }[];
+  vote_average: number;
+  original_language: string;
+
+ }
