@@ -1,24 +1,21 @@
+import Navbar from "./components/NAV"
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import Home from "./pages/Home"
+import Movies from "./pages/Movie"
+import Details from "./pages/Details"
 
-import './App.css';
-import Navbar from './components/NAV';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
-import Details from './pages/Details';
-import Movie from './pages/Movie';
-import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-const App = () => {
+function App() {
 
   return (
-    <div className=''>
+    <div className="">
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/movies' element={<Movie />} />
-          <Route path='/details/:id' element={<Details />} />
-          <Route path='*' element={<Navigate to="/" />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/details/:id" element={<Details />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>

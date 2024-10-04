@@ -1,37 +1,42 @@
-import { useState, useEffect } from "react"
-import { baseApi } from "../../api/axiosInstance"
-import YouTube from "react-youtube"
-const Trailer = ({ movieId }: { movieId: String }) => {
+import { useEffect, useState } from 'react'
+import { baseApi } from '../../api/axiosInstance'
+import Youtube from "react-youtube"
+
+function Trailers({ movieId }: { movieId: string }) {
     const [trailer, setTrailers] = useState<{ key: string, name: string }[]>([])
-    const fetchTrailer = async () => {
+
+    const fetchTrailers = async () => {
         try {
             const response = await baseApi.get(`/3/movie/${movieId}/videos?language=en-US`)
             console.log(response.data.results)
-            const trailerObj = response.data.results.filter((data: { type: String }) => data.type == "Trailer")
-            setTrailers(trailerObj)
+            const tarilerObj = response.data.results.filter((data: { type: string }) => data.type == "Trailer")
+            setTrailers(tarilerObj)
         } catch (error) {
-            console.log("fetch trailer error", error)
+            console.log("fetch triler error", error)
         }
     }
+
     useEffect(() => {
-        fetchTrailer()
+        fetchTrailers()
     }, [movieId])
-    const otps = {
-        height: "280",
-        weight: "380",
+
+    const opts = {
+        height: '280',
+        width: '380'
     }
+
+
     return (
         <div className="">
-            {
-                trailer.length > 0 &&
-                <div className="mt-16">
-                    <h1 className="text-3xl text-yellow-300 font-semibold">Watch Trailer</h1>
+            {trailer.length > 0 &&
+                <div className='md:mt-16 mt-4'>
+                    <h1 className='md:text-3xl sm:text-2xl text-xl text-yellow-500 font-bold'>Watch Trailers</h1>
                     <div className="flex flex-wrap gap-4">
                         {
-                            trailer.map((link, index) =>
-                                <div key={index} className="flex flex-col gap-4 mt-4">
-                                    <YouTube videoId={link.key} otps={otps} />
-                                    <h1 className="text-xl w-[380px]">{link.name}</h1>
+                            trailer.map((link, ind) =>
+                                <div key={ind} className="flex flex-col sm:gap-2 mt-4">
+                                    <Youtube videoId={link.key} opts={opts} />
+                                    <h1 className='text-xl w-[380px]'>{link.name}</h1>
                                 </div>
                             )
                         }
@@ -42,4 +47,4 @@ const Trailer = ({ movieId }: { movieId: String }) => {
     )
 }
 
-export default Trailer
+export default Trailers
