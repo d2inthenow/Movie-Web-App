@@ -50,8 +50,8 @@ const HomeSlider = () => {
   }
   return (
     <div className="row">
-      <div className="relative col-8">
-        <div id="carouselExample" className="carousel slide">
+      <div className="relative col-xl-8">
+        <div id="carouselExample" className="carousel slide h-full">
           <HomeCarousel carouselMovies={carouselMovies} />
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
             <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -63,11 +63,11 @@ const HomeSlider = () => {
           </button>
         </div>
       </div>
-      <div className="col-4 ">
+      {/* <div className="col-4 ">
         <HomeCarouselList
           next={next}
           carouselMovies={carouselMovies} />
-      </div>
+      </div> */}
     </div>
   )
 }

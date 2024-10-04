@@ -29,12 +29,12 @@ const Home = () => {
     setPage(prev => prev + 1)
   }
   return (
-    <div className="w-[90%] mx-auto mb-44 ">
+    <div className="xl:w-[90%] md:-[95%] mx-auto mb-44 ">
       <HomeSlider />
-      <MovieList movies={movies} title="Top Rated Movies" />
+      {/* <MovieList movies={movies} title="Top Rated Movies" />
       <div className="" onClick={() => handlePageUpdate()}>
         <LoadMoreBtn />
-      </div>
+      </div> */}
 
     </div>
   )
