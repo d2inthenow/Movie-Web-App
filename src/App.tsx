@@ -14,12 +14,12 @@ const App = () => {
     <div className=''>
       <BrowserRouter>
       <Navbar />
-        <Routes>
+        {/* <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/movies' element={<Movie />} />
           <Route path='/details/:id' element={<Details />} />
           <Route path='*' element={<Navigate to="/" />} />
-        </Routes>
+        </Routes> */}
       </BrowserRouter>
     </div>
   )
