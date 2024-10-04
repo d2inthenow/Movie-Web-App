@@ -11,7 +11,7 @@ interface CarouselMiniCardProps {
 function CarouselMiniCard({carouselMovies,item,index}: CarouselMiniCardProps) {
     const [hover, setHover] = useState<number | null>(null);
     return (
-        <Link key={index} to={`/details/${carouselMovies[item].id}`} style={{ textDecoration: 'none' }}>
+        <Link to={`/details/${carouselMovies[item].id} `} className='col-xl-12 col' style={{ textDecoration: 'none' }}>
             <div className="flex gap-2"
                 onMouseEnter={() => setHover(index)}
                 onMouseLeave={() => setHover(null)}>
