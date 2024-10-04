@@ -1,25 +1,33 @@
-import { CarouselMovieType } from "../../utils/constant"
-import CarouselMiniCard from './CarouselMiniCard'
-interface HomeCarouselListProps {
-    next: number[],
+import { CarouselMovieType } from '../../utils/constant'
+import CarouselMiniCardSkeleton from '../Skeleton/CarouselMiniCardSkeleton';
+import CarouselMiniCard from './CarouselMiniCard';
+
+interface HomecarouselListProps {
+    next: number[]
     carouselMovies: CarouselMovieType[]
 }
-function HomeCarouselList({ next, carouselMovies }: HomeCarouselListProps) {
+
+function HomecarouselList({ next, carouselMovies }: HomecarouselListProps) {
 
     return (
-        <div className="">
-            <h1 className="font-bold text-xl text-yellow-500"> Up Next</h1>
-
+        <div>
+            <h1 className='font-bold text-xl text-yellow-500'>Up Next</h1>
             <div className="row">
-                {next.map((item) => (
-                    <CarouselMiniCard carouselMovies={carouselMovies} item={item} ind={item} />
-                ))
+                {
+                    carouselMovies.length > 0 ?
+                        next.map((item) => (
+                            <CarouselMiniCard carouselMovies={carouselMovies} item={item} ind={item} />
+                        ))
+                        :
+                        [...Array(3)].map((_, index) =>
+                            <CarouselMiniCardSkeleton key={index} />
+                        )
                 }
-
             </div>
+
 
         </div>
     )
 }
 
-export default HomeCarouselList
+export default HomecarouselList

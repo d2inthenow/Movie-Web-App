@@ -1,6 +1,6 @@
 import { MovieCardType } from "../../utils/constant"
 import MovieCard from "./MovieCard"
-
+import MovieCardSkeleton from "../Skeleton/MovieCardSkeleton"
 interface MovieListProps {
     movies: MovieCardType[]
     title?: string
@@ -13,9 +13,14 @@ const MovieList = ({ movies, title }: MovieListProps) => {
             }
             <div className="row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
                 {
-                    movies.length > 0 && movies.map((data) => (
-                        <MovieCard key={data.id} movieData={data} />
-                    ))
+                    movies.length > 0 ?
+                        movies.length > 0 && movies.map((data, ind) => (
+                            <MovieCard key={data.id} movieData={data} />
+                        ))
+                        :
+                        [...Array(12)].map(item =>
+                            <MovieCardSkeleton />
+                        )
                 }
             </div>
         </div>
