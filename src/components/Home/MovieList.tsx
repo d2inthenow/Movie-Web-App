@@ -14,11 +14,11 @@ const MovieList = ({ movies, title }: MovieListProps) => {
             <div className="row row-cols-xl-6 row-cols-lg-5 row-cols-md-4 row-cols-sm-3 row-cols-2">
                 {
                     movies.length > 0 ?
-                        movies.length > 0 && movies.map((data, ind) => (
+                        movies.length > 0 && movies.map((data) => (
                             <MovieCard key={data.id} movieData={data} />
                         ))
                         :
-                        [...Array(12)].map(item =>
+                        [...Array(12)].map(_ =>
                             <MovieCardSkeleton />
                         )
                 }

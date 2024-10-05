@@ -74,7 +74,7 @@ function Navbar() {
                         <div className="sm:absolute fixed z-50 left-0 sm:max-w-[500px] w-full bg-zinc-800 rounded-xl">
                             <div className="py-3 pl-5">
                                 <div className="flex flex-col gap-2 h-fit max-h-[380px] overflow-y-auto">
-                                    {searchedList.length > 0 && searchedList.map((item, ind) =>
+                                    {searchedList.length > 0 && searchedList.map((_, ind) =>
                                         <CarouselMiniCard carouselMovies={searchedList} ind={ind} item={ind} />
                                     )}
                                 </div>
